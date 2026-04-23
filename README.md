@@ -1,3 +1,9 @@
+-- :help mapleader
+-- :help option-list
+-- :help lua-guide-autocommands
+-- :help lazy.nvim.txt
+-- :checkhealth
+-- :help gitsigns
 # kickstart.nvim
 
 ## Introduction
