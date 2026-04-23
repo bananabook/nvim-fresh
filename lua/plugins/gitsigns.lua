@@ -3,6 +3,9 @@ return { -- Adds git related signs to the gutter, as well as utilities for manag
   ---@module 'gitsigns'
   ---@type Gitsigns.Config
   ---@diagnostic disable-next-line: missing-fields
+  init = function()
+    vim.opt.signcolumn = "yes"
+  end,
   opts = {
     signs = {
       add = { text = '+' }, ---@diagnostic disable-line: missing-fields

@@ -4,8 +4,6 @@ vim.g.maplocalleader = ' '
 
 -- [[ Settings ]]
 
-vim.cmd.colorscheme("wildcharm")
-
 require("config.settings")
 
 require("config.keybinds")
