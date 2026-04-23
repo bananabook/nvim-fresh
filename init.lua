@@ -4,13 +4,15 @@ vim.g.maplocalleader = ' '
 
 -- [[ Settings ]]
 
+vim.cmd.colorscheme("wildcharm")
+
 require("config.settings")
 
 require("config.keybinds")
 
 -- [[ Basic Autocommands ]]
 
-require("config.autocommands")
+-- require("config.autocommands")
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -28,7 +30,6 @@ rtp:prepend(lazypath)
 require('lazy').setup({
   { 'NMAC427/guess-indent.nvim', opts = {} },
 
-
   require("plugins.gitsigns"),
   require("plugins.which-key"),
   require("plugins.neo-tree"),
@@ -43,7 +44,7 @@ require('lazy').setup({
 
   -- require("plugins.blink"),
 
-  require("plugins.tokyonight"),
+  -- require("plugins.tokyonight"),
 
   -- Highlight todo, notes, etc in comments
   require("plugins.todo-comments"),
