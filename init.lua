@@ -51,6 +51,7 @@ require('lazy').setup({
   -- require("plugins.mini"),
 
   require("plugins.nvim-treesitter"),
+  require("plugins.start"),
 
   --  Recommended plugins
   --
