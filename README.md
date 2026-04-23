@@ -4,6 +4,10 @@
 -- :help lazy.nvim.txt
 -- :checkhealth
 -- :help gitsigns
+-- :help lsp-vs-treesitter
+-- :help CursorHold
+
+
 # kickstart.nvim
 
 ## Introduction
