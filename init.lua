@@ -26,7 +26,7 @@ rtp:prepend(lazypath)
 
 -- [[ Configure and install plugins ]]
 require('lazy').setup({
-  -- { 'NMAC427/guess-indent.nvim', opts = {} },
+  { 'NMAC427/guess-indent.nvim', opts = {} },
 
   require("plugins.gitsigns"),
   require("plugins.which-key"),

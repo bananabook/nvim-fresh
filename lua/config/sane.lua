@@ -21,6 +21,7 @@ vim.keymap.set('n', '<leader>v', '<cmd>sp<CR>')
 vim.keymap.set('n', '<leader>g', '<cmd>vs<CR>')
 
 vim.keymap.set('n', '<leader>e', '<cmd>Neotree toggle<CR>')
+vim.keymap.set('n', '<leader>o', '<cmd>on<CR>')
 
 vim.cmd 'digraph bp 8226 "•'
 vim.cmd 'digraph <3 10084 "❤️'
