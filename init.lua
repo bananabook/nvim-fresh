@@ -20,13 +20,64 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   if vim.v.shell_error ~= 0 then error('Error cloning lazy.nvim:\n' .. out) end
 end
 
+
+
 ---@type vim.Option
 local rtp = vim.opt.rtp
 rtp:prepend(lazypath)
 
 -- [[ Configure and install plugins ]]
 require('lazy').setup({
+  -- lazy.nvim
+  {
+    "chrisgrieser/nvim-origami",
+    event = "VeryLazy",
+    opts = {}, -- required even when using default config
+    config = function()
+      require("origami").setup({
+        autoFold= {
+          enabled = false,
+        }}
+      )
+    end,
+
+    -- recommended: disable vim's auto-folding
+    init = function()
+      vim.opt.foldlevel = 99
+      vim.opt.foldlevelstart = 99
+    end,
+  },
   { 'NMAC427/guess-indent.nvim', opts = {} },
+  {
+    "L3MON4D3/LuaSnip",
+    -- follow latest release.
+    version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+    -- install jsregexp (optional!).
+    build = "make install_jsregexp",
+    config = function()
+      require("luasnip.loaders.from_vscode").lazy_load()
+      local ls = require("luasnip")
+
+      -- for "all" filetypes create snippet for "func"
+      ls.add_snippets( "all", {
+        ls.parser.parse_snippet(
+          'func',
+          'function ${1}(${2}) \n{\n\t${3}\n}'),
+      })
+
+      -- Map "Ctrl + p" (in insert mode)
+      -- to expand snippet and jump through fields.
+      vim.keymap.set(
+      'i',
+      '<c-p>',
+      function()
+        if ls.expand_or_jumpable() then
+          ls.expand_or_jump()
+        end
+      end
+      )
+    end
+  },
 
   require("plugins.gitsigns"),
   require("plugins.which-key"),
